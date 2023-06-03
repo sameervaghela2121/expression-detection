@@ -1,0 +1,11 @@
+node_modules
+.rpt2_cache
+.env*
+package-lock.json
+tmp
+proto
+weights_uncompressed
+weights_unused
+docs
+out
+build
