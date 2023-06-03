@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, '../media')))
 app.use(express.static(path.join(__dirname, '../../weights')))
 app.use(express.static(path.join(__dirname, '../../dist')))
 
-app.get('/', (req, res) => res.redirect('/face_detection'))
+app.get('/', (req, res) => res.redirect('/webcam_face_expression_recognition'))
 app.get('/face_detection', (req, res) => res.sendFile(path.join(viewsDir, 'faceDetection.html')))
 app.get('/face_landmark_detection', (req, res) => res.sendFile(path.join(viewsDir, 'faceLandmarkDetection.html')))
 app.get('/face_expression_recognition', (req, res) => res.sendFile(path.join(viewsDir, 'faceExpressionRecognition.html')))
@@ -51,7 +51,7 @@ app.post('/fetch_external_image', async (req, res) => {
 app.listen(3000, () => console.log('Listening on port 3000!'))
 
 function request(url, returnBuffer = true, timeout = 10000) {
-  return new Promise(function(resolve, reject) {
+  return new Promise(function (resolve, reject) {
     const options = Object.assign(
       {},
       {
@@ -65,7 +65,7 @@ function request(url, returnBuffer = true, timeout = 10000) {
       returnBuffer ? { encoding: null } : {}
     )
 
-    get(options, function(err, res) {
+    get(options, function (err, res) {
       if (err) return reject(err)
       return resolve(res)
     })
